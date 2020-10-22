@@ -25,7 +25,7 @@ This is a simple script that takes the input images of eyes and splits them into
 
 ### Create a virtual environment
 
-> Assuming [`conda`](https://www.anaconda.com/products/individual#Downloads) is preinstalled.
+> Assuming [`conda`](https://www.anaconda.com/products/individual#Downloads) is preinstalled and this repository is cloned / downloaded.
 
 - Create an environment
 
