@@ -16,6 +16,19 @@ import sys
 import shutil
 from PIL import Image, UnidentifiedImageError
 
+w_size = 224  # required width
+
+
+def resize(img):
+    # img.size[0] ==> width
+    # img.size[1] ==> height
+    # calculate width:height  - to maintain the aspect ratio
+    ratio = w_size / float(img.size[1])
+    h_size = int(img.size[0] * ratio)  # calculate new:height
+    # Image.LANCZOS filter smoothens the scaled images - but it is slower
+    img = img.resize((h_size, w_size), Image.LANCZOS)
+    return img
+
 
 def process_img(item, f_path):
     red, green, blue = [], [], []
@@ -37,7 +50,8 @@ def process_img(item, f_path):
         new_file = f_path[i] + '/' + f_name
         print("Writing...", os.path.basename(new_file))
         img.putdata(color)
-        img.save(new_file)
+        new_img = resize(img)
+        new_img.save(new_file)
 
 
 def channelize(imp, inp, omp, onp):
