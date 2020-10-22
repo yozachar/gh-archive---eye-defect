@@ -20,6 +20,7 @@ w_size = 224  # required width
 
 
 def resize(img):
+    '''Resize filtered images'''
     # img.size[0] ==> width
     # img.size[1] ==> height
     # calculate width:height  - to maintain the aspect ratio
@@ -31,6 +32,7 @@ def resize(img):
 
 
 def process_img(item, f_path):
+    '''Filter images to RGB channels'''
     red, green, blue = [], [], []
 
     f_name = os.path.basename(item)
@@ -43,7 +45,7 @@ def process_img(item, f_path):
                 green.append((0, d[1], 0, ))
                 blue.append((0, 0, d[2], ))
     except UnidentifiedImageError as e:
-        print(e)
+        print(">> Error: File Corrupted!")
         return
 
     for i, color in enumerate([red, green, blue]):
@@ -55,6 +57,7 @@ def process_img(item, f_path):
 
 
 def channelize(imp, inp, omp, onp):
+    '''Prepare images for filering'''
     # RGB for mild-dr
     red_m = omp + '/Red'
     os.makedirs(red_m)
@@ -91,6 +94,7 @@ def channelize(imp, inp, omp, onp):
 
 
 def setup_path():
+    '''Setup directory and paths'''
     # input path
     in_dir = project_path + '/Datasets/Input'
     in_mild_path = in_dir + '/MILD-DR'
