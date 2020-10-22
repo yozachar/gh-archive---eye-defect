@@ -21,7 +21,6 @@ This is a simple script that takes the input images of eyes and splits them into
 - There are two sample images in the input directory. The script will create the `Output` directory if it does not already exists.
 - The images are also scaled down to `337 × 224 px` preserving the aspect ratio.
 
-
 ## Usage
 
 ### Create a virtual environment
@@ -52,11 +51,7 @@ python src/main.py
 
 ### Input Image
 
-<center>
-
 ![input_image](https://i.stack.imgur.com/hZlr9.jpg)
-
-</center>
 
 ### Output Images
 
