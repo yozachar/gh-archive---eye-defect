@@ -1,5 +1,5 @@
 '''
-# Todo
+# Steps
 # 1. Collect images
 # 2. Extract data
 # 3. Go with second method - 3 folders R, B, & G
@@ -59,19 +59,19 @@ def process_img(item, f_path):
 def channelize(imp, inp, omp, onp):
     '''Prepare images for filering'''
     # RGB for mild-dr
-    red_m = omp + '/Red'
+    red_m = omp + '/red'
     os.makedirs(red_m)
-    green_m = omp + '/Green'
+    green_m = omp + '/green'
     os.makedirs(green_m)
-    blue_m = omp + '/Blue'
+    blue_m = omp + '/blue'
     os.makedirs(blue_m)
 
     # RGB for no-dr
-    red_n = onp + '/Red'
+    red_n = onp + '/red'
     os.makedirs(red_n)
-    green_n = onp + '/Green'
+    green_n = onp + '/green'
     os.makedirs(green_n)
-    blue_n = onp + '/Blue'
+    blue_n = onp + '/blue'
     os.makedirs(blue_n)
 
     m_cnt = 1
@@ -96,21 +96,21 @@ def channelize(imp, inp, omp, onp):
 def setup_path():
     '''Setup directory and paths'''
     # input path
-    in_dir = project_path + '/Datasets/Input'
-    in_mild_path = in_dir + '/MILD-DR'
-    in_null_path = in_dir + '/NO-DR'
+    in_dir = project_path + '/datasets/input'
+    in_mild_path = in_dir + '/mild-dr'
+    in_null_path = in_dir + '/no-dr'
 
     # output path
-    out_dir = project_path + '/Datasets/Output'
+    out_dir = project_path + '/datasets/output'
     # check if output diretory already exists then delete it.
     if os.path.isdir(out_dir):
         shutil.rmtree(out_dir)
 
     # create output directories
     os.makedirs(out_dir)
-    out_mild_path = out_dir + '/MILD-DR'
+    out_mild_path = out_dir + '/mild-dr'
     os.makedirs(out_mild_path)
-    out_null_path = out_dir + '/NO-DR'
+    out_null_path = out_dir + '/no-dr'
     os.makedirs(out_null_path)
 
     return in_mild_path, in_null_path, out_mild_path, out_null_path
